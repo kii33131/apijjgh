@@ -28,6 +28,9 @@ Route::rule('api/message/getListByCategory', 'api/Message/getListByCategory')->a
 
 Route::rule('api/message/detail', 'api/Message/detail')->allowCrossDomain();
 Route::rule('api/initiation/addInitiation', 'api/Initiation/addInitiation')->allowCrossDomain();
+Route::rule('api/suggest/addSuggest', 'api/Suggest/addSuggest')->allowCrossDomain();
+
+//addSuggest
 
 //addInitiation
 //addInitiation
