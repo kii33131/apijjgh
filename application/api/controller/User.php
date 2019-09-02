@@ -5,7 +5,7 @@ namespace app\api\controller;
 
 use app\api\validate\AchievementValidate;
 use app\api\validate\ContentValidate;
-use app\api\validate\Msg;
+use app\api\validate\Initiation;
 use app\api\validate\UntyingValidate;
 use app\api\validate\UserReceive;
 use app\api\validate\UserSms;
@@ -15,7 +15,7 @@ use app\model\ContentModel;
 use app\model\ContractModel;
 use app\model\MemebrBankModel;
 use app\model\MemebrModel;
-use app\model\MemebrTaskModel;
+use app\model\InitiationModel;
 use app\model\UserModel;
 use think\facade\Request;
 
@@ -81,7 +81,7 @@ class User extends Base
         $validate = new \app\api\validate\Task();
         $validate->scene('receivingtask')->goCheck();
         $data = $validate->getDataByRule(input('post.'));
-        $memberTaskModel = new MemebrTaskModel();
+        $memberTaskModel = new InitiationModel();
         $result=$memberTaskModel->receiving_task($data['task_id'],$this->userinfo['userinfo']['id']);
         if(isset($result['url'])){
             success(['url'=>$result['url']]);
@@ -95,7 +95,7 @@ class User extends Base
         $validate = new \app\api\validate\Task();
         $validate->scene('dealing_invitations')->goCheck();
         $data = $validate->getDataByRule(input('post.'));
-        $memberTaskModel = new MemebrTaskModel();
+        $memberTaskModel = new InitiationModel();
         $result=$memberTaskModel->dealingInvitations($data['member_task_id'],$data['type']);
         if(isset($result['url'])){
             success(['url'=>$result['url']]);

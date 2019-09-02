@@ -27,7 +27,10 @@ Route::rule('api/user/content_list', 'api/user/contentlist')->allowCrossDomain()
 Route::rule('api/message/getListByCategory', 'api/Message/getListByCategory')->allowCrossDomain();
 
 Route::rule('api/message/detail', 'api/Message/detail')->allowCrossDomain();
+Route::rule('api/initiation/addInitiation', 'api/Initiation/addInitiation')->allowCrossDomain();
 
+//addInitiation
+//addInitiation
 //user/submit_content
 //edit_userinfo
 Route::rule('api/channel/index', 'api/Channel/index')->allowCrossDomain();

@@ -9,7 +9,7 @@ use app\api\validate\Region;
 use app\model\BannerModel;
 use app\model\IndustryCategoryModel;
 use app\model\MemebrModel;
-use app\model\MemebrTaskModel;
+use app\model\InitiationModel;
 use app\model\StoreModel;
 use app\model\TaskModel;
 use think\Db;

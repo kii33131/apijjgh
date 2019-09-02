@@ -4,7 +4,7 @@
 namespace app\api\controller;
 
 
-use app\model\MemebrTaskModel;
+use app\model\InitiationModel;
 use app\model\TaskModel;
 
 class Task extends Base
@@ -36,7 +36,7 @@ class Task extends Base
         $validate = new \app\api\validate\Task();
         $validate->scene('memberList')->goCheck();
         $data =input('post.');
-        $taskModel= new MemebrTaskModel();
+        $taskModel= new InitiationModel();
         if(!$this->userinfo['userinfo']['business_id']){
             error('您还不是企业',40001);
         }
@@ -50,7 +50,7 @@ class Task extends Base
         $validate = new \app\api\validate\Task();
         $validate->scene('memberList')->goCheck();
         $data =input('post.');
-        $taskModel= new MemebrTaskModel();
+        $taskModel= new InitiationModel();
         if(!$this->userinfo['userinfo']['business_id']){
             error('您还不是企业',40001);
         }
@@ -63,7 +63,7 @@ class Task extends Base
         $validate = new \app\api\validate\Task();
         $validate->scene('examine')->goCheck();
         $data =input('post.');
-        $taskModel= new MemebrTaskModel();
+        $taskModel= new InitiationModel();
         if(!$this->userinfo['userinfo']['business_id']){
             error('您还不是企业',40001);
         }
@@ -78,7 +78,7 @@ class Task extends Base
         $validate = new \app\api\validate\Task();
         $validate->scene('detail')->goCheck();
         $data =input('post.');
-        $MemebrTaskModel= new MemebrTaskModel();
+        $MemebrTaskModel= new InitiationModel();
         $MemebrTaskModel->resubmit($data['id']);
         success([]);
 

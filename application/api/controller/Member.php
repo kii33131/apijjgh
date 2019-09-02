@@ -5,7 +5,7 @@ namespace app\api\controller;
 
 
 use app\model\MemebrModel;
-use app\model\MemebrTaskModel;
+use app\model\InitiationModel;
 use app\model\TaskModel;
 
 class Member extends Base
