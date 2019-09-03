@@ -14,7 +14,7 @@ use think\Request;
 class Base extends Controller
 {
     protected $uid;//用户id
-    protected $listRows = 10;//每页显示数量
+    protected $listRows = 100;//每页显示数量
 //    protected $url; //请求url
 //    protected $parameters;//请求参数
     public $userinfo = [];
