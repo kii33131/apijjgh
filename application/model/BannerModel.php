@@ -5,24 +5,17 @@ namespace app\model;
 class BannerModel extends BaseModel
 {
     protected $name = 'banner';
-    protected $type = [
-        'imgs'    =>  'json',
-    ];
-    public function get_banner($city){
-        $list = self::where(['state'=>1,'city'=>$city])->field('id,title,img1,img2,img3,url')->order('id', 'desc')->select();
-        return $list;
-    }
 
-    public function getAllList($params, $limit = self::LIMIT)
+    public function getAllBanner()
     {
-        $banner = $this->where([]);
-        if(!empty($params['province'])) {
-            $banner = $banner->where([
-                'province' => $params['province'],
-                'city' => $params['city'],
-                'district' => $params['district']
-            ]);
-        }
-        return $banner->order('id desc')->paginate($limit, false, ['query' => request()->param()]);
+        return $this
+            ->field('id,title,url,image')
+            ->where('status',1)
+            ->order('create_time','desc')
+            ->select();
+    }
+    public function getImageAttr($name, $value, $data = [])
+    {
+        return !empty($value['image']) ? config('upload_domain') . $value['image'] : '';
     }
 }

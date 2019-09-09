@@ -53,6 +53,8 @@ Route::rule('api/task/resubmit', 'api/Task/resubmit')->allowCrossDomain();
 
 //coupon
 Route::rule('api/home/index', 'api/Home/index')->allowCrossDomain();
+//轮播图列表
+Route::rule('api/home/banner', 'api/Home/banner')->allowCrossDomain();
 Route::rule('api/membertask/management_list', 'api/MemberTask/taskList')->allowCrossDomain();
 
 Route::rule('api/memberschedule/submit_schedule', 'api/MemberSchedule/submitSchedule')->allowCrossDomain();

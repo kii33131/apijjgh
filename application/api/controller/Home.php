@@ -44,5 +44,9 @@ class Home extends Base
         success($list);
     }
 
-
+    public function banner()
+    {
+        $BannerModel = new BannerModel();
+        success($BannerModel->getAllBanner());
+    }
 }
