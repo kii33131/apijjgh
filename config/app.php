@@ -147,6 +147,7 @@ return [
     'upload_file'           => env('root_path') . 'public/assets/uploads/',
     //当前域名
     'upload_domain' => request()->domain() . '/assets/uploads/',
+    'image_domain' =>  'http://test3.intelgice.com/assets/uploads/',
     'allow_ip'=>['127.0.0.1'],
     'columnname'=>'充电宝',
     //e签宝

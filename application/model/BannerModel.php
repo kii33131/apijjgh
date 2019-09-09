@@ -16,6 +16,6 @@ class BannerModel extends BaseModel
     }
     public function getImageAttr($name, $value, $data = [])
     {
-        return !empty($value['image']) ? config('upload_domain') . $value['image'] : '';
+        return !empty($value['image']) ? config('image_domain') . $value['image'] : '';
     }
 }
