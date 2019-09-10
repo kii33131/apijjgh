@@ -105,11 +105,10 @@ Route::rule('api/membertask/contrac_tist', 'api/MemberTask/contractList')->allow
 
 Route::rule('api/membertask/business_contract_list', 'api/MemberTask/businessContractList')->allowCrossDomain();
 
-//redirect
-
-//contractList
-
-//deletePackage
+// 缘定公会列表
+Route::rule('api/activity/list', 'api/Activity/activityList')->allowCrossDomain();
+// 缘定公会报名
+Route::rule('api/activity/apply', 'api/Activity/apply')->allowCrossDomain();
 
 
 
