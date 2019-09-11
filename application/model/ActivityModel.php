@@ -54,8 +54,15 @@ class ActivityModel extends BaseModel
         if(empty($activity_detail)){
             return ['code' => 0,'msg' => '活动已失效'];
         }
+        $model = new ActivityLogsModel();
+        $status =  $model
+            ->where('activity_id',$data['activity_id'])
+            ->where('phone',$data['phone'])
+            ->count();
+        if($status > 0){
+            return ['code' => 0,'msg' => '活动已报名'];
+        }
         try{
-            $model = new ActivityLogsModel();
             $model->data($data)->save();
             return ['code' => 1,'msg' => '报名成功'];
         }catch (\Exception $e){
