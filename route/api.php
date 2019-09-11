@@ -107,6 +107,7 @@ Route::rule('api/membertask/business_contract_list', 'api/MemberTask/businessCon
 
 // 缘定公会列表
 Route::rule('api/activity/list', 'api/Activity/activityList')->allowCrossDomain();
+Route::rule('api/activity/detail', 'api/Activity/detail')->allowCrossDomain();
 // 缘定公会报名
 Route::rule('api/activity/apply', 'api/Activity/apply')->allowCrossDomain();
 

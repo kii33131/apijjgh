@@ -16,6 +16,13 @@ class ActivityModel extends BaseModel
         return $list;
     }
 
+    public function getActivityDetail($id)
+    {
+        return $this
+            ->where('id',$id)
+            ->find();
+    }
+
     public function AddApply($data = [])
     {
         if(empty($data['activity_id']) || !is_numeric($data['activity_id']) || $data['activity_id'] <= 0){

@@ -11,6 +11,13 @@ class Activity extends Base
         success($ActivityModel->getActivityList());
     }
 
+    public function detail()
+    {
+        $id  = input('post.id');
+        $ActivityModel = new ActivityModel();
+        success($ActivityModel->getActivityDetail($id));
+    }
+
     public function apply()
     {
         $data =input('post.');
