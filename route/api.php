@@ -12,6 +12,8 @@ Route::rule('api/message/detail', 'api/Message/detail')->allowCrossDomain();
 Route::rule('api/initiation/addInitiation', 'api/Initiation/addInitiation')->allowCrossDomain();
 Route::rule('api/suggest/addSuggest', 'api/Suggest/addSuggest')->allowCrossDomain();
 
+Route::rule('api/home/banner', 'api/Home/banner')->allowCrossDomain();
+
 // 缘定公会列表
 Route::rule('api/activity/list', 'api/Activity/activityList')->allowCrossDomain();
 Route::rule('api/activity/detail', 'api/Activity/detail')->allowCrossDomain();
