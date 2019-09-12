@@ -80,6 +80,7 @@ class WeChat extends Controller
                     'unionid'       => $unionid,
                     'userinfo'      => $userinfo
                 ];
+                dump($data);die;
                 return $data;
             }
         }
