@@ -20,7 +20,4 @@ Route::rule('api/activity/detail', 'api/Activity/detail')->allowCrossDomain();
 // 缘定公会报名
 Route::rule('api/activity/apply', 'api/Activity/apply')->allowCrossDomain();
 
-
-
-
-
+//

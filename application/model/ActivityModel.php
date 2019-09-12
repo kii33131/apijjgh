@@ -18,9 +18,15 @@ class ActivityModel extends BaseModel
 
     public function getActivityDetail($id)
     {
-        return $this
+        $result =  $this
             ->where('id',$id)
             ->find();
+        if($result['enclosure']){
+            $result['enclosure'] =json_decode($result['enclosure']);
+        }else{
+            $result['enclosure'] =[];
+        }
+        return $result;
     }
 
     public function AddApply($data = [])
