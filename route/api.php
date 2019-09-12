@@ -20,4 +20,6 @@ Route::rule('api/activity/detail', 'api/Activity/detail')->allowCrossDomain();
 // 缘定公会报名
 Route::rule('api/activity/apply', 'api/Activity/apply')->allowCrossDomain();
 
-//
+//微信网页授权
+Route::rule('api/wechat/login','api/WeChat/login')->allowCrossDomain();
+Route::rule('api/wechat/getUserInfo','api/WeChat/getUserInfo')->allowCrossDomain();

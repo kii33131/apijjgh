@@ -148,45 +148,24 @@ return [
     //当前域名
     'upload_domain' => request()->domain() . '/assets/uploads/',
     'image_domain' =>  'http://test3.intelgice.com/assets/uploads/',
-    'allow_ip'=>['127.0.0.1'],
-    'columnname'=>'充电宝',
-    //e签宝
-    'e_appId'=>"5111579320",
-    'e_secret'=>"ad71823f48ad2ee2c73197955e2afbcc",
-    'e_grantType'=>"client_credentials",
-    'e_url'=>"https://openapi.esign.cn",
 
-    'e_width'=>99.211,
-    'e_height'=>99.211,
-    'e_wz_width'=>400,
-    'e_page'=>10,
-    'e_wz_page'=>1,
-//平台盖章区
-    'e_pt_x'=>220,
-    'e_pt_y'=>250,
-//企业盖章区
-    'e_ql_x'=>220,
-    'e_ql_y'=>600,
-//创客盖章区
-    'e_ck_x'=>220,
-    'e_ck_y'=>450,
-//平台填写文字
-    'e_pt_wz_x'=>70,
-    'e_pt_wz_y'=>405,
-//企业填写文字
-    'e_ql_wz_x'=>70,
-    'e_ql_wz_y'=>540,
-//创客填写文字
-    'e_ck_wz_x'=>70,
-    'e_ck_wz_y'=>460,
-//委托书
-    'e_wt_page'=>1,
-//委托书企业盖章区
-    'e_wtql_x'=>220,
-    'e_wtql_y'=>470,
-//委托书创客盖章区
-    'e_wtck_x'=>470,
-    'e_wtck_y'=>470
+    'web_url' => request()->domain(),
+    'allow_ip'=>['127.0.0.1'],
+
+    // +----------------------------------------------------------------------
+    // | 会话设置
+    // +----------------------------------------------------------------------
+    'session'                => [
+        'id'             => '',
+        // SESSION_ID的提交变量,解决flash上传跨域
+        'var_session_id' => '',
+        // SESSION 前缀
+        'prefix'         => 'think',
+        // 驱动方式 支持redis memcache memcached
+        'type'           => '',
+        // 是否自动开启 SESSION
+        'auto_start'     => true,
+    ],
 
 ];
 
