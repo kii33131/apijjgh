@@ -1,6 +1,7 @@
 <?php
 namespace app\api\controller;
 
+use app\api\service\UserService;
 use think\Controller;
 use think\Session;
 
@@ -80,11 +81,28 @@ class WeChat extends Controller
                     'unionid'       => $unionid,
                     'userinfo'      => $userinfo
                 ];
-                dump($data);die;
                 return $data;
             }
         }
         return [];
+    }
+
+    public function saveUserData()
+    {
+        $code = $this->request->request("code");
+        //通过code换access_token和绑定会员
+        $result = $this->getUserInfo(['code' => $code]);
+        if ($result) {
+            $loginret = UserService::connect($result);
+            if ($loginret) {
+                $data = [
+                    'userinfo'  => $this->auth->getUserinfo(),
+                    'thirdinfo' => $result
+                ];
+                success($data);
+            }
+        }
+        error('参数错误',500);
     }
 
     /**
