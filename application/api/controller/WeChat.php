@@ -62,7 +62,7 @@ class WeChat extends Controller
                         "openid"       => $openid,
                         "lang"         => 'zh_CN'
                     ];
-                    $ret = Http::post(self::GET_USERINFO_URL, $queryarr);
+                    $ret = \Http::post(self::GET_USERINFO_URL, $queryarr);
                     $userinfo = json_decode($ret, true);
                     if (!$userinfo || isset($userinfo['errcode'])) {
                         return [];
@@ -102,7 +102,7 @@ class WeChat extends Controller
             "code"       => $code,
             "grant_type" => "authorization_code",
         );
-        $response = Http::post(self::GET_ACCESS_TOKEN_URL, $queryarr);
+        $response = \Http::post(self::GET_ACCESS_TOKEN_URL, $queryarr);
         $ret = json_decode($response, true);
         return $ret ? $ret : [];
     }
