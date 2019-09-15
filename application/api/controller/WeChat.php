@@ -3,7 +3,6 @@ namespace app\api\controller;
 
 use app\api\service\UserService;
 use think\Controller;
-use think\Session;
 
 class WeChat extends Controller
 {
@@ -96,7 +95,7 @@ class WeChat extends Controller
             $loginret = UserService::connect($result);
             if ($loginret) {
                 $data = [
-                    'userinfo'  => $this->auth->getUserinfo(),
+                    'userinfo'  => $loginret,
                     'thirdinfo' => $result
                 ];
                 success($data);
