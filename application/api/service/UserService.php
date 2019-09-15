@@ -27,7 +27,6 @@ class UserService
             if (!$member_info) {
                 return false;
             }
-            // 写入登录Cookies和Token
             return $member_info;
         }
     }
