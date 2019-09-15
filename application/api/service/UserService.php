@@ -3,6 +3,7 @@
 namespace app\api\service;
 
 use app\model\MemberModel;
+use think\Db;
 
 class UserService
 {
