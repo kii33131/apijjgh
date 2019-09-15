@@ -21,7 +21,11 @@ class UserService
         $member = new MemberModel();
         $member_info = MemberModel::get(['openid' => $params['openid']]);
         if ($member_info) {
-            $member->save($values);
+            $member_info->logintime = $time;
+            $member_info->nickname = $values['nickname'];
+            $member_info->gender = $values['gender'];
+            $member_info->avatar = $values['avatar'];
+            $member->save();
             return self::direct($member_info->id);
         } else {
             // 默认注册一个会员
