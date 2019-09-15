@@ -24,11 +24,13 @@ class WeChat extends Controller
      */
     public function getAuthorizeUrl()
     {
+        $state = md5(uniqid(rand(), true));
         $queryarr = array(
             "appid"         => config('wechat.app_id'),
             "redirect_uri"  => config('wechat.callback'),
             "response_type" => "code",
             "scope"         => config('wechat.scope'),
+            "state"         => $state,
         );
         request()->isMobile() && $queryarr['display'] = 'mobile';
         $url = self::GET_AUTH_CODE_URL . '?' . http_build_query($queryarr) . '#wechat_redirect';
