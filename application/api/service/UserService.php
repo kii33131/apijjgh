@@ -78,7 +78,7 @@ class UserService
         //账号注册时需要开启事务,避免出现垃圾数据
         Db::startTrans();
         try {
-            $user = User::create($params, true);
+            $user = MemberModel::create($params, true);
             Db::commit();
             return $user;
         } catch (Exception $e) {
