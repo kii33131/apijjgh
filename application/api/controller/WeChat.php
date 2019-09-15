@@ -88,12 +88,9 @@ class WeChat extends Controller
 
     public function saveUserData()
     {
-        dump(111);
         $code = $this->request->request("code");
-        dump($code);
         //通过code换access_token和绑定会员
         $result = $this->getUserInfo(['code' => $code]);
-        dump($result);die;
         if ($result) {
             $loginret = UserService::connect($result);
             if ($loginret) {
