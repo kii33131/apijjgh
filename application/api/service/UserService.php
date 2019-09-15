@@ -14,6 +14,7 @@ class UserService
             'openid'        => $params['openid'],
             'nickname'      => isset($params['userinfo']['nickname']) ? $params['userinfo']['nickname'] : '',
             'avatar'      => isset($params['userinfo']['avatar']) ? $params['userinfo']['avatar'] : '',
+            'gender'      => isset($params['userinfo']['sex']) ? $params['userinfo']['sex'] : 0,
             'logintime'     => $time,
         ];
 
@@ -67,6 +68,7 @@ class UserService
         $params = [
             'openid'  => $values['openid'],
             'nickname'  => $values['nickname'],
+            'gender'  => $values['gender'],
             'avatar'  => htmlspecialchars(strip_tags($values['avatar'])),
             'logintime' => $time,
             'loginip'   => $ip,

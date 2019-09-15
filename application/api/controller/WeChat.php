@@ -93,11 +93,7 @@ class WeChat extends Controller
         if ($result) {
             $loginret = UserService::connect($result);
             if ($loginret) {
-                $data = [
-                    'userinfo'  => $loginret,
-                    'thirdinfo' => $result
-                ];
-                success($data);
+                success($loginret);
             }
         }
         error('参数错误',500);
