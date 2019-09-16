@@ -1,10 +1,7 @@
 <?php
 use \think\facade\Route;
-//Token
-Route::rule('api/token/user', 'api/Token/getToken')->allowCrossDomain();
 //user
-Route::rule('api/user/send_msg', 'api/User/sendMsg')->allowCrossDomain();
-Route::rule('api/user/login', 'api/User/login')->allowCrossDomain();
+Route::rule('api/user/profile', 'api/User/profile')->allowCrossDomain();
 
 
 Route::rule('api/message/getListByCategory', 'api/Message/getListByCategory')->allowCrossDomain();

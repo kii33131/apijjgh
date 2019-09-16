@@ -29,21 +29,10 @@ class Base extends Controller
         $action=\think\facade\Request::action();
         $controller=\think\facade\Request::controller();
         $rule = $controller.'/'.$action;
-        /*
-        if(!in_array($rule,['User/sendmsg','User/login','Home/index','Task/details','Channel/index','Upload/img','Upload/imgs','Upload/imgstest','User/redirects','User/redirecty','User/contentlist','Achievement/achievementlist2','User/info2'])){
-            $result=$this->check_auth();
-            if($result['code']==200){
-                $this->userinfo = $result['data'];
-            }else{
-
-                error($result['code'],$result['data']);
-            }
-        }*/
-        //设置分页数量
-//        $this->url= request()->url(true);
-//        $this->parameters = \GuzzleHttp\json_encode(input('post.'));
-//        $Request = new Request();
-//        $this->method=$Request->method();
+        $token = $this->request->header('token') ? $this->request->header('token') : $this->request->param('token');
+        if($token){
+            $this->userinfo = MemberModel::get(['token' => $token]);
+        }
     }
 
     public function check_auth() {
