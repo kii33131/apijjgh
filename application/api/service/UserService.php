@@ -20,7 +20,6 @@ class UserService
 
         $member_info = MemberModel::get(['openid' => $params['openid']]);
         if ($member_info) {
-            $member_info->logintime = $time;
             $member_info->nickname = $values['nickname'];
             $member_info->gender = $values['gender'];
             $member_info->avatar = $values['avatar'];
