@@ -15,4 +15,9 @@ class User extends Base
         $Member = new MemberModel();
         success($Member->editMember($params,$userInfo));
     }
+
+    public function info()
+    {
+        success($this->userinfo);
+    }
 }

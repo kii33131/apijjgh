@@ -2,6 +2,7 @@
 use \think\facade\Route;
 //user
 Route::rule('api/user/profile', 'api/User/profile')->allowCrossDomain();
+Route::rule('api/user/info', 'api/User/info')->allowCrossDomain();
 
 
 Route::rule('api/message/getListByCategory', 'api/Message/getListByCategory')->allowCrossDomain();
