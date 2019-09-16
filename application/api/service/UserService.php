@@ -25,7 +25,7 @@ class UserService
             $member_info->gender = $values['gender'];
             $member_info->avatar = $values['avatar'];
             $member_info->save();
-            return self::direct($member_info->id);
+            return self::direct($member_info);
         } else {
             // 默认注册一个会员
             $member_info = self::register($values);
@@ -36,29 +36,23 @@ class UserService
         }
     }
 
-    public static function direct($member_id)
+    public static function direct($member_info)
     {
-        $user = MemberModel::get($member_id);
-        if ($user) {
-            Db::startTrans();
-            try {
-                $ip = request()->ip();
-                $time = time();
+        Db::startTrans();
+        try {
+            $ip = request()->ip();
+            $time = time();
 
-                $user->prevtime = $user->logintime;
-                //记录本次登录的IP和时间
-                $user->loginip = $ip;
-                $user->logintime = $time;
-                $user->token = \Random::uuid();
-                $user->save();
+            $member_info->prevtime = $member_info->logintime;
+            //记录本次登录的IP和时间
+            $member_info->loginip = $ip;
+            $member_info->logintime = $time;
+            $member_info->save();
 
-                Db::commit();
-                return $user;
-            } catch (Exception $e) {
-                Db::rollback();
-                return false;
-            }
-        } else {
+            Db::commit();
+            return $member_info;
+        } catch (Exception $e) {
+            Db::rollback();
             return false;
         }
     }
