@@ -87,7 +87,7 @@ class WeChat extends Controller
 
     public function getUserData()
     {
-        $code = $this->request->request("code");
+        $code = $this->request->param("code");
         //通过code换access_token和绑定会员
         $result = $this->getUserInfo(['code' => $code]);
         if ($result) {
