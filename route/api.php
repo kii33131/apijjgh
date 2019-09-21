@@ -7,7 +7,18 @@ Route::rule('api/user/info', 'api/User/info')->allowCrossDomain();
 
 Route::rule('api/message/getListByCategory', 'api/Message/getListByCategory')->allowCrossDomain();
 Route::rule('api/message/detail', 'api/Message/detail')->allowCrossDomain();
-Route::rule('api/initiation/addInitiation', 'api/Initiation/addInitiation')->allowCrossDomain();
+// 入会接口
+Route::group('api/initiation/',function (){
+    // 申请入会、完善入会信息、重新申请入会
+    Route::rule('addInitiation', 'api/Initiation/addInitiation')->allowCrossDomain();
+    // 入会信息详情
+    Route::rule('info', 'api/Initiation/info')->allowCrossDomain();
+    // 匹配省总信息
+    Route::rule('verify', 'api/Initiation/verify')->allowCrossDomain();
+    // 名族 文化程度 婚姻状态 就业状态 技术等级 户籍类型对应关系
+    Route::rule('dict', 'api/Initiation/dict')->allowCrossDomain();
+});
+
 Route::rule('api/suggest/addSuggest', 'api/Suggest/addSuggest')->allowCrossDomain();
 
 Route::rule('api/home/banner', 'api/Home/banner')->allowCrossDomain();

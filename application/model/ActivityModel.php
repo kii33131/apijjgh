@@ -29,8 +29,11 @@ class ActivityModel extends BaseModel
         return $result;
     }
 
-    public function AddApply($data = [])
+    public function AddApply($data = [], $userinfo = [])
     {
+        if(empty($userinfo)){
+            return ['code' => 0,'msg' => '请先授权'];
+        }
         if(empty($data['activity_id']) || !is_numeric($data['activity_id']) || $data['activity_id'] <= 0){
             return ['code' => 0,'msg' => '请选择活动'];
         }
@@ -66,7 +69,7 @@ class ActivityModel extends BaseModel
             ->where('phone',$data['phone'])
             ->count();
         if($status > 0){
-            return ['code' => 0,'msg' => '活动已报名'];
+            return ['code' => 0,'msg' => '您已报名'];
         }
         try{
             $model->data($data)->save();

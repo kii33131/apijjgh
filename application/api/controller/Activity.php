@@ -20,9 +20,10 @@ class Activity extends Base
 
     public function apply()
     {
+        $userinfo = $this->userinfo;
         $data =input('post.');
         $model = new ActivityModel();
-        $list=$model->AddApply($data);
+        $list=$model->AddApply($data,$userinfo);
         success($list);
     }
 }
