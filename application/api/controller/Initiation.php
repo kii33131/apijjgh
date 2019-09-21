@@ -146,4 +146,19 @@ class Initiation extends Base
         $data['person_type_list'] = $person_type_list;
         success($data);
     }
+
+    public function status()
+    {
+        $userinfo = $this->userinfo;
+        if(empty($userinfo)){
+            $result =  ['code' => 0, 'msg' => '请先授权'];
+            success($result);
+        }
+        if($userinfo->is_vip == 1){
+            $result =  ['code' => 0, 'msg' => '','data' => ['status' => 1]];
+        }else{
+            $result =  ['code' => 0, 'msg' => '','data' => ['status' => 0]];
+        }
+        success($result);
+    }
 }

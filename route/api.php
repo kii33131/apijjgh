@@ -17,6 +17,8 @@ Route::group('api/initiation/',function (){
     Route::rule('verify', 'api/Initiation/verify')->allowCrossDomain();
     // 名族 文化程度 婚姻状态 就业状态 技术等级 户籍类型对应关系
     Route::rule('dict', 'api/Initiation/dict')->allowCrossDomain();
+    // 申请状态
+    Route::rule('status', 'api/Initiation/status')->allowCrossDomain();
 });
 
 Route::rule('api/suggest/addSuggest', 'api/Suggest/addSuggest')->allowCrossDomain();
