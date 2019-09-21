@@ -17,6 +17,27 @@ class InitiationModel extends BaseModel
         $result = $this
             ->where('member_id', $userinfo->id)
             ->find();
+        if(empty($result)){
+            $result['id'] = 0;
+            $result['member_id'] = $userinfo->id;
+            $result['name'] = '';
+            $result['sex'] = '';
+            $result['nation'] = '';
+            $result['birthday'] = '';
+            $result['card_number'] = '';
+            $result['phone'] = '';
+            $result['education'] = '';
+            $result['marry_status'] = '';
+            $result['job_status'] = '';
+            $result['technical_level'] = '';
+            $result['place'] = '';
+            $result['is_peasant'] = '';
+            $result['is_industry'] = '';
+            $result['company_address'] = '';
+            $result['email'] = '';
+            $result['is_model_worker'] = '';
+            $result['difficulty'] = '';
+        }
         $result['status'] = $userinfo->is_vip;
         return ['code' => 1, 'msg' => '','data' => $result];
     }
