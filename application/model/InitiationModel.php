@@ -17,6 +17,7 @@ class InitiationModel extends BaseModel
         $result = $this
             ->where('member_id', $userinfo->id)
             ->find();
+        $result['status'] = $userinfo->is_vip;
         return ['code' => 1, 'msg' => '','data' => $result];
     }
 

@@ -23,11 +23,14 @@ Route::rule('api/suggest/addSuggest', 'api/Suggest/addSuggest')->allowCrossDomai
 
 Route::rule('api/home/banner', 'api/Home/banner')->allowCrossDomain();
 
-// 缘定公会列表
-Route::rule('api/activity/list', 'api/Activity/activityList')->allowCrossDomain();
-Route::rule('api/activity/detail', 'api/Activity/detail')->allowCrossDomain();
-// 缘定公会报名
-Route::rule('api/activity/apply', 'api/Activity/apply')->allowCrossDomain();
+// 缘定公会
+Route::group('api/activity/',function (){
+    Route::rule('list', 'api/Activity/activityList')->allowCrossDomain();
+    Route::rule('detail', 'api/Activity/detail')->allowCrossDomain();
+    // 缘定公会报名
+    Route::rule('apply', 'api/Activity/apply')->allowCrossDomain();
+});
+
 
 //微信网页授权
 Route::rule('api/wechat/login','api/WeChat/login')->allowCrossDomain();
